@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8f9fa;
+  --foreground: #191c1d;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-manrope), sans-serif;
+}
+
+/* Material Symbols configuration */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* Scroll smoothness */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Utilities based on Design System */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* No-line rule: Boundaries defined by background shifts */
+.vault-section-white {
+  background-color: #ffffff;
+}
+
+.vault-section-low {
+  background-color: #f3f4f5;
+}
+
+.vault-card {
+  @apply bg-surface-container-lowest rounded-xl border border-transparent transition-all duration-300;
+}
+
+.vault-card:hover {
+  @apply shadow-[0_24px_48px_-12px_rgba(25,28,29,0.04)];
+}
