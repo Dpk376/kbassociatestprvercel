@@ -1,9 +1,7 @@
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
-const apiKey = process.env.RESEND_API_KEY || 're_placeholder';
-
-if (!process.env.RESEND_API_KEY && process.env.NODE_ENV === 'production') {
-  console.warn('RESEND_API_KEY is not defined in production. Email functionality will fail.');
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("Missing RESEND_API_KEY environment variable");
 }
 
-export const resend = new Resend(apiKey);
+export const resend = new Resend(process.env.RESEND_API_KEY);

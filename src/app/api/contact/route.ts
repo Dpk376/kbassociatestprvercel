@@ -1,72 +1,67 @@
-import { NextResponse } from "next/server";
 import { resend } from "@/lib/resend";
-import { contactSchema } from "@/lib/validation";
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    
-    // Validate the request body
-    const validatedData = contactSchema.safeParse(body);
-    
-    if (!validatedData.success) {
+    const { name, email, phone, message } = body;
+
+    if (!name || !email || !phone || !message) {
       return NextResponse.json(
-        { message: "Invalid input data", errors: validatedData.error.flatten() },
+        { success: false, message: "Missing required fields" },
         { status: 400 }
       );
     }
 
-    const { name, email, phone, message } = validatedData.data;
-
-    // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: "K.B. ASSOCIATES Leads <onboarding@resend.dev>", // Replace with verified domain in production
-      to: [process.env.CONTACT_EMAIL || "kbassociates8587@gmail.com"],
-      subject: `New Loan Inquiry from ${name}`,
+      from: "K.B. Associates <onboarding@resend.dev>",
+      to: "kbassociates8587@gmail.com",
+      subject: `New Loan Enquiry from ${name}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-          <h2 style="color: #001e40;">New Loan Inquiry</h2>
-          <p>You have received a new lead from your website contact form.</p>
-          <hr style="border: 0; border-top: 1px solid #eee;" />
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
+          <h2 style="color: #0f172a; margin-top: 0;">New Loan Enquiry Received</h2>
+          <p style="color: #475569; font-size: 16px;">Details of the enquiry:</p>
+          
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 10px 0; font-weight: bold; color: #555;">Name:</td>
-              <td style="padding: 10px 0;">${name}</td>
+              <td style="padding: 8px 0; color: #64748b; font-weight: bold; width: 120px;">Name:</td>
+              <td style="padding: 8px 0; color: #0f172a;">${name}</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; font-weight: bold; color: #555;">Email:</td>
-              <td style="padding: 10px 0;">${email}</td>
+              <td style="padding: 8px 0; color: #64748b; font-weight: bold;">Email:</td>
+              <td style="padding: 8px 0; color: #0f172a;">${email}</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; font-weight: bold; color: #555;">Phone:</td>
-              <td style="padding: 10px 0;">${phone}</td>
+              <td style="padding: 8px 0; color: #64748b; font-weight: bold;">Phone:</td>
+              <td style="padding: 8px 0; color: #0f172a;">${phone}</td>
             </tr>
           </table>
-          <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
-            <p style="font-weight: bold; margin-top: 0;">Message:</p>
-            <p style="margin-bottom: 0;">${message}</p>
+
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+            <p style="color: #64748b; font-weight: bold; margin-bottom: 8px;">Message:</p>
+            <p style="color: #0f172a; line-height: 1.6; margin-top: 0;">${message}</p>
           </div>
-          <p style="margin-top: 30px; font-size: 12px; color: #999;">This email was sent from the K.B. ASSOCIATES contact form.</p>
+          
+          <div style="margin-top: 30px; font-size: 12px; color: #94a3b8; text-align: center;">
+            This enquiry was sent from the K.B. Associates Contact Form.
+          </div>
         </div>
       `,
     });
 
     if (error) {
-      console.error("Resend API Error:", error);
+      console.error("Resend error:", error);
       return NextResponse.json(
-        { message: "Failed to send email", error },
+        { success: false, message: "Failed to send email" },
         { status: 500 }
       );
     }
 
-    return NextResponse.json(
-      { message: "Message sent successfully", id: data?.id },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error("Contact API Server Error:", error);
+    console.error("API error:", error);
     return NextResponse.json(
-      { message: "Internal server error" },
+      { success: false, message: "Internal server error" },
       { status: 500 }
     );
   }

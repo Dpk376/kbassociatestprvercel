@@ -20,7 +20,7 @@ export default function ConsultationCTA() {
 
         <div className="flex flex-wrap justify-center gap-6">
           <a
-            href="tel:9025580888"
+            href="tel:9500630228"
             className="flex items-center gap-3 bg-secondary text-white px-10 py-5 rounded-2xl font-bold hover:bg-secondary/90 transition-all shadow-xl shadow-secondary/30 hover:scale-105 active:scale-95"
           >
             <span className="material-symbols-outlined">call</span>
@@ -28,7 +28,7 @@ export default function ConsultationCTA() {
           </a>
           
           <a
-            href="https://wa.me/919025580888"
+            href="https://wa.me/919500630228"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-[#25D366] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#20bd5a] transition-all shadow-xl shadow-green-500/20 hover:scale-105 active:scale-95"

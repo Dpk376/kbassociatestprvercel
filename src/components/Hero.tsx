@@ -89,18 +89,23 @@ export default function Hero() {
                 <span className="text-lg font-medium">{text}</span>
               </div>
             ))}
+            
+            <div className="flex items-center gap-2 mt-2 text-green-400 font-semibold">
+              <span className="material-symbols-outlined text-sm">trending_up</span>
+              Take Over Topup – 7.1% interest – 0.59 paisa – applicable with all major banks
+            </div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-6">
             <a
-              href="tel:9025580888"
+              href="tel:9500630228"
               className="flex items-center gap-3 bg-secondary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:scale-105 active:scale-95"
             >
               <span className="material-symbols-outlined">call</span>
               Call Now
             </a>
             <a
-              href="https://wa.me/919025580888?text=Hi%2C%20I%20found%20K.B.%20Associates%20online%20and%20would%20like%20to%20know%20about%20loan%20services."
+              href="https://wa.me/919500630228?text=Hi%2C%20I%20found%20K.B.%20Associates%20online%20and%20would%20like%20to%20know%20about%20loan%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#20bd5a] transition-all shadow-lg shadow-green-500/20 hover:scale-105 active:scale-95"

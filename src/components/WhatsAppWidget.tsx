@@ -8,7 +8,7 @@ export default function WhatsAppWidget() {
   const [showNotification, setShowNotification] = useState(false);
 
   const whatsappLink =
-    "https://wa.me/919025580888?text=Hi%2C%20I%20found%20K.B.%20Associates%20online%20and%20would%20like%20to%20know%20about%20loan%20services.";
+    "https://wa.me/919500630228?text=Hi%2C%20I%20found%20K.B.%20Associates%20online%20and%20would%20like%20to%20know%20about%20loan%20services.";
 
   useEffect(() => {
     // Show a subtle notification after 3 seconds to draw attention

@@ -82,7 +82,7 @@ export default function ContactForm() {
                   icon: "location_on",
                   title: "Office Address",
                   content:
-                    "49/50, 1st Floor, Dolphin Complex, Servo Engine Oil Upstairs, Binny Compound, Kumaran Road, Tiruppur - 641601",
+                    "Tirupur, Tamil Nadu",
                 },
                 {
                   icon: "mail",
@@ -92,7 +92,7 @@ export default function ContactForm() {
                 {
                   icon: "call",
                   title: "Phone Number",
-                  content: "9025580888",
+                  content: "9500630228",
                 },
               ].map((item, index) => (
                 <motion.div 
@@ -115,7 +115,7 @@ export default function ContactForm() {
 
             <motion.div variants={fadeIn} className="flex flex-wrap gap-4 pt-4">
               <a
-                href="tel:9025580888"
+                href="tel:9500630228"
                 className="bg-secondary text-white px-8 py-3.5 rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-lg"
               >
                 <span className="material-symbols-outlined">call</span> Call Now
@@ -164,7 +164,7 @@ export default function ContactForm() {
                   <input
                     {...register("phone")}
                     className="w-full bg-surface-container-low p-4 rounded-xl border-none ring-1 ring-outline-variant focus:ring-2 focus:ring-secondary transition-all outline-none"
-                    placeholder="+91 90255 80888"
+                    placeholder="+91 95006 30228"
                     disabled={isSubmitting}
                   />
                   {errors.phone && (

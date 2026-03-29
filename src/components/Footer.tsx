@@ -67,11 +67,11 @@ export default function Footer() {
           <ul className="space-y-4 text-slate-400 text-sm">
             <li className="flex items-start gap-3">
               <span className="material-symbols-outlined text-secondary-fixed text-sm">location_on</span>
-              <span>49/50, Binny Compound, Kumaran Road, Tiruppur - 641601</span>
+              <span>Tirupur, Tamil Nadu</span>
             </li>
             <li className="flex items-center gap-3">
               <span className="material-symbols-outlined text-secondary-fixed text-sm">call</span>
-              <span>+91 90255 80888</span>
+              <span>+91 95006 30228</span>
             </li>
             <li className="flex items-center gap-3">
               <span className="material-symbols-outlined text-secondary-fixed text-sm">mail</span>

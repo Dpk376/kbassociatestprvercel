@@ -161,7 +161,7 @@ export default function Services() {
             
             <div className="flex flex-wrap justify-center gap-6">
               <a 
-                href="tel:9025580888" 
+                href="tel:9500630228" 
                 className="flex items-center gap-3 bg-secondary text-white px-8 py-4 rounded-2xl font-bold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20 hover:scale-105"
               >
                 <span className="material-symbols-outlined">call</span>
@@ -177,7 +177,7 @@ export default function Services() {
               </a>
               
               <a 
-                href="https://wa.me/919025580888" 
+                href="https://wa.me/919500630228" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-2xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-500/20 hover:scale-105"
